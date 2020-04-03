@@ -142,7 +142,7 @@
 				<?php foreach($items as $item): ?>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url('assets/images/').$item['photo'] ?>" alt="Colorlib Template">
+    					<a href="<?php echo site_url('item/show/').$item['id'] ?>" class="img-prod"><img class="img-fluid" src="<?php $photos = explode(',',$item['photo']); echo base_url('assets/uploads/').$photos[0]?>" alt="">
     						<!-- <span class="status">30%</span> -->
     						<div class="overlay"></div>
     					</a>

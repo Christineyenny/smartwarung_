@@ -2,8 +2,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Profile</span></p>
-            <h1 class="mb-0 bread"><?php echo $user['name']; ?></h1>
+          	<p class="breadcrumbs" style="color: black;"><span class="mr-2" ><a href="<?php echo base_url(); ?>" style="color: black;">Home</a></span> <span style="color: black;">Profile</span></p>
+            <h1 class="mb-0 bread" style="color: black;"><?php echo $user['name']; ?></h1>
           </div>
         </div>
       </div>

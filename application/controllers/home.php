@@ -26,7 +26,7 @@ class home extends CI_Controller {
 	
 	 public function index()
 	{
-		$data['items'] = $this->foods->get_all();
+		$data['items'] = $this->items->get_all();
 
 		$this->load->view('template/header');
 		$this->load->view('home/index', $data);
