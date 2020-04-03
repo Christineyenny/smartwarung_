@@ -58,7 +58,7 @@
             <?php if($this->session->userdata('name') == null): ?>
               <li class="nav-item cta cta-colored"><a href="<?php echo site_url('auth/login') ?>" class="nav-link"><span class="icon-user"></span> Login</a></li>
             <?php elseif($this->session->userdata('name') != null): ?>
-              <li class="nav-item cta cta-colored"><a href="<?php echo site_url('auth/login') ?>" class="nav-link"><span class="icon-user"></span> <?php echo $this->session->userdata('name') ?></a></li>
+              <li class="nav-item cta cta-colored"><a href="<?php echo site_url('warung') ?>" class="nav-link"><span class="icon-user"></span> <?php echo $this->session->userdata('name') ?></a></li>
             <?php endif; ?>
 	        </ul>
 	      </div>

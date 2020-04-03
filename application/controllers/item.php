@@ -6,15 +6,21 @@ class item extends CI_Controller {
     public function __construct(){
         parent::__construct();
 
-        $this->load->model('foods');
+        $this->load->model('items');
         $this->load->library('form_validation');
     }
+
+    // create untuk page form bikin baru
+    // store fungsi setelah tombol submit ditekan -> masukin ke database
+    // edit untuk page form update
+    // update untuk database setelah tombol submit
+    // delete 
 
     public function create(){
         // nama,deskripsi,harga,stok,foto
 
         $this->load->view('template/header');
-        $this->load->view('food/create');
+        $this->load->view('item/create');
         $this->load->view('template/footer');
     }
 
@@ -26,7 +32,7 @@ class item extends CI_Controller {
 
         if($this->form_validation->run() == false){
             $this->load->view('template/header');
-            $this->load->view('food/create');
+            $this->load->view('item/create');
             $this->load->view('template/footer');
         }else{
             $countfiles = count($_FILES['files']['name']);
@@ -59,19 +65,39 @@ class item extends CI_Controller {
             if(!empty($data_photos)){
                 $data_photo = implode(',',$data_photos);
 
-                $this->foods->store($this->session->userdata('username'),$data_photo);
+                $this->items->store($this->session->userdata('username'),$data_photo);
                 echo "end";
             }
         }
     }
 
     public function show($id){
-        $data['food'] = $this->foods->get_one_id($id);
+        $data['food'] = $this->items->get_one_id($id);
 
         $this->load->view('template/header');
-        $this->load->view('food/show',$data);
+        $this->load->view('item/show',$data);
         $this->load->view('template/footer');
-        $this->load->view('food/script');
+        $this->load->view('item/script');
+    }
+
+    public function edit($id){
+        $data['item'] = $this->items->get_one_id($id);
+
+        $this->load->view('template/header');
+        $this->load->view('item/edit',$data);
+        $this->load->view('template/footer');
+    }
+
+    public function update($id){
+        $this->items->update($id);
+
+        redirect('warung', 'refresh');
+    }
+
+    public function delete($id){
+        $this->items->delete($id);
+
+        redirect('warung', 'refresh');
     }
 }
 ?>

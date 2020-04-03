@@ -116,6 +116,15 @@ class auth extends CI_Controller {
 
 	}
 
+	public function edit($username){
+		$data['user'] = $this->users->get_username($this->session->userdata('username'));
+
+		$this->load->view('template/header');
+		$this->load->view('auth/edit',$data);
+		$this->load->view('template/footer');
+
+	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url());
